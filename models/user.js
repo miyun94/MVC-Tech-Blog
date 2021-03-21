@@ -23,7 +23,14 @@ user.init({
     password: {
         type: DataTypes.STRING, 
         allowNull: false, 
-    }
+    }, 
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: true   
+    }}
 }, {hooks: {
     async beforeCreate(userData){
         userData.password = bcrypt.hash(userData.password, 10); 

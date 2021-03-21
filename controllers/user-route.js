@@ -36,7 +36,8 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     user.create({
-        username: req.body.username, 
+        username: req.body.username,
+        email: req.body.email, 
         password: req.body.password
     }).then(userData => {
       req.session.save(()=> {
