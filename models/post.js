@@ -9,7 +9,14 @@ post.init({
         allowNull: false, 
         primaryKey: true, 
         autoIncrement: true
-    }, 
+    },
+    post_url: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          isURL: true
+        }
+      }, 
     title:{
         type: DataTypes.STRING, 
         allowNull: false
@@ -33,4 +40,4 @@ post.init({
     modelName: 'post'
   })
 
-  module.exports = post; 
+  module.exports = post;
